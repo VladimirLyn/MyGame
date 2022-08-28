@@ -2,14 +2,12 @@
 
 public class Move : MonoBehaviour
 {
-    BoxCollider  GroundCheckCollider;
-    FixedJoystick FixedJoystickOnCanvas;
-    Rigidbody RigidBodyOfPlayer;
-    float MovementSpeed = 10;
+    public FixedJoystick FixedJoystickOnCanvas;
+    public Rigidbody RigidBodyOfPlayer;
+    readonly float  MovementSpeed = 10;
     float vertical, horizontal;
-    float JumpHeight = 300;
+    readonly float JumpHeight = 300;
     public bool OnGround = false;
-    Camera PlayerCamera;
     
     void OnTriggerStay(Collider Col )
     {
@@ -18,15 +16,6 @@ public class Move : MonoBehaviour
     void OnTriggerExit(Collider Col)
     {
         if (Col.tag == "ground") OnGround = false;
-    }
-    void Start()
-    {
-        FixedJoystickOnCanvas = FindObjectOfType<FixedJoystick>();
-        RigidBodyOfPlayer = GetComponent<Rigidbody>();
-        GroundCheckCollider = GetComponent<BoxCollider>();
-    }
-    void Update()
-    {
     }
     void FixedUpdate()
     {
@@ -42,6 +31,4 @@ public class Move : MonoBehaviour
     {
         if (OnGround) RigidBodyOfPlayer.AddForce(Vector3.up * JumpHeight);
     }
-
-
 }
