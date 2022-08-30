@@ -20,7 +20,7 @@ public class AnemyDamage : MonoBehaviour
                 }
             case ("skillfireatack"):
                 {
-                    AnemyHP -= 10;
+                    AnemyHP -= 4;
                     break;
                 }
         }

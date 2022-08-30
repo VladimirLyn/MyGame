@@ -34,8 +34,18 @@ public class Damage : MonoBehaviour
                         if (HP < 100 && StartHeal == true)
                         {
                             HP += 50;
-                            StartCoroutine(DeactivateAndActivate(60,Col.GameObject()));
+                            StartCoroutine(DeactivateAndActivate(60, Col.GameObject()));
                         }
+                        break;
+                    }
+                case ("tank"):
+                    {
+                        HP -= 0.2f;
+                        break;
+                    }
+                case ("boss"):
+                    {
+                        HP -= 1f;
                         break;
                     }
             }
@@ -68,6 +78,6 @@ public class Damage : MonoBehaviour
 
     public void PressButtonHeal()
     {
-        StartCoroutine(CanHeal());  
+        StartCoroutine(CanHeal());
     }
 }

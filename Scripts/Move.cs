@@ -8,7 +8,12 @@ public class Move : MonoBehaviour
     float vertical, horizontal;
     readonly float JumpHeight = 300;
     public bool OnGround = false;
-    
+
+    private void Start()
+    {
+        RigidBodyOfPlayer = GetComponent<Rigidbody>();
+    }
+
     void OnTriggerStay(Collider Col )
     {
         if (Col.tag == "ground") OnGround = true;
